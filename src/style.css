@@ -63,6 +63,7 @@ nav a.active, nav a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
+  row-gap: 30px;
 }
 
 
