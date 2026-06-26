@@ -1,4 +1,3 @@
-// Configuración de la API y datos enriquecidos con estadísticas funcionales
 const API_URL = 'https://api.openf1.org/v1/drivers?session_key=9161';
 const BACKBACK_DRIVERS = [
   { driver_number: 1, points: 393, wins: 15, podiums: 20 },
@@ -26,17 +25,15 @@ const BACKBACK_DRIVERS = [
 let allDrivers = [];
 let favorites = JSON.parse(localStorage.getItem('f1_favorites')) || [];
 
-// Captura de elementos del DOM
 const driversGrid = document.getElementById('drivers-grid');
 const statusMessage = document.getElementById('status-message');
 const searchInput = document.getElementById('search-input');
 const teamFilter = document.getElementById('team-filter');
 const sortSelect = document.getElementById('sort-select');
 
-// 1. CONSUMO CON TIMEOUT Y ENRIQUECIMIENTO DE DATOS
 async function fetchDrivers() {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 2500); // 2.5 segundos de tolerancia
+  const timeoutId = setTimeout(() => controller.abort(), 2500); 
 
   try {
     const cachedDrivers = localStorage.getItem('f1_drivers_cache_v2');
@@ -237,7 +234,7 @@ function actualizarEnlacesNavegacion() {
   if (paginaActual === 'favoritos.html') {
     btnFavoritos.classList.add('active');
   } else {
-    btnInicio.classList.add('active'); 
+    btnInicio.classList.add('active');
   }
 }
 
