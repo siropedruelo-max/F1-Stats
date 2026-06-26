@@ -279,34 +279,30 @@ nav a.active, nav a:hover {
     padding: 15px 10px;
   }
 
-  /* Forzamos al nav a actuar como columna, separando los botones uno abajo del otro */
   .main-header nav {
     display: flex;
-    flex-direction: column; /* Alineación vertical */
+    flex-direction: column; 
     align-items: center;
     width: 100%;
-    gap: 12px; /* Espacio de separación entre un botón y otro */
+    gap: 12px; 
   }
 
-  /* Estilo individual para que los enlaces parezcan botones limpios y bien distribuidos */
   .nav-link, .nav-btn-tab {
     display: block;
-    width: 90%; /* Ocupan casi todo el ancho disponible para que sea fácil tocarlos */
+    width: 90%;
     text-align: center;
     padding: 10px 0;
-    margin: 0 !important; /* Eliminamos márgenes laterales viejos que causaban la superposición */
+    margin: 0 !important; 
     border-radius: 6px;
-    background-color: #1a1a1a; /* Un fondo sutil para dar sensación de botón */
+    background-color: #1a1a1a; 
     transition: background-color 0.2s, color 0.2s;
   }
 
-  /* Resaltado para el botón de la página donde estás parado actualmente */
   .nav-link.active, .nav-btn-tab.active {
-    background-color: #e10600; /* Rojo Ferrari/F1 oficial */
+    background-color: #e10600; 
     color: #ffffff !important;
   }
 
-  /* El comparador: los selectores se ponen uno abajo del otro */
   .toolbar {
     flex-direction: column;
     align-items: center;
@@ -318,11 +314,11 @@ nav a.active, nav a:hover {
   }
 
   .selector-group select {
-    width: 100%; /* El select ocupa todo el ancho del celu */
+    width: 100%;
   }
 }
 
-/* 📲 Para Pantallas Chicas (Celulares - Menos de 480px) */
+
 @media (max-width: 480px) {
   h1 {
     font-size: 1.5rem;
@@ -332,12 +328,10 @@ nav a.active, nav a:hover {
     font-size: 1.2rem;
   }
 
-  /* La grilla pasa a 1 sola columna obligatoria */
   .drivers-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Achicamos un poco los textos de las barras de estadísticas para que no se pisen */
   .stat-comparison-row div {
     font-size: 0.85rem;
   }

@@ -22,21 +22,17 @@ function mostrarFavoritos() {
 
 function crearTarjetaFavorito(piloto) {
   const tarjeta = document.createElement('div');
-  // CORREGIDO: Cambiado a 'driver-card'
   tarjeta.className = 'driver-card';
   tarjeta.style.borderLeft = `6px solid #${piloto.team_colour || 'FFFFFF'}`;
 
   const encabezado = document.createElement('div');
-  // CORREGIDO: Cambiado a 'card-header'
   encabezado.className = 'card-header';
 
   const numero = document.createElement('span');
-  // CORREGIDO: Cambiado a 'driver-number'
   numero.className = 'driver-number';
   numero.textContent = `#${piloto.driver_number}`;
 
   const botonEliminar = document.createElement('button');
-  // CORREGIDO: Cambiado a 'fav-btn'
   botonEliminar.className = 'fav-btn boton-eliminar-favorito';
   botonEliminar.title = 'Eliminar de favoritos';
   botonEliminar.textContent = '×';
@@ -46,7 +42,6 @@ function crearTarjetaFavorito(piloto) {
   encabezado.appendChild(botonEliminar);
 
   const info = document.createElement('div');
-  // CORREGIDO: Cambiado a 'driver-info'
   info.className = 'driver-info';
 
   const nombre = document.createElement('h3');
@@ -76,10 +71,8 @@ function crearParrafoDato(etiqueta, valor) {
 
 function crearEstadisticas(piloto) {
   const estadisticas = document.createElement('div');
-  // CORREGIDO: Cambiado a 'stats-container'
   estadisticas.className = 'stats-container';
 
-  // CORREGIDO: Cambiadas las clases de las estadísticas individuales
   estadisticas.appendChild(crearItemEstadistica(piloto.points, 'Ptos', 'stat-points'));
   estadisticas.appendChild(crearItemEstadistica(piloto.wins, 'Victorias', 'stat-wins'));
   estadisticas.appendChild(crearItemEstadistica(piloto.podiums, 'Podios', 'stat-podiums'));

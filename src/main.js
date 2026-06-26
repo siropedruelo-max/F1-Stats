@@ -56,16 +56,11 @@ async function fetchDrivers() {
     if (!data || data.length === 0) throw new Error('Datos vacíos');
 
     
-    // Filtrar duplicados de la API de telemetría
     const apiDrivers = Array.from(new Map(data.map(d => [d.driver_number, d])).values());
-    // Dentro de tu fetch de pilotos en el main.js:
 
     
     
-    // Cruzamos los datos dinámicos de la API con nuestras estadísticas funcionales locales
-   // ... código anterior del fetch ...
 
-    // Cruzamos los datos dinámicos de la API con nuestras estadísticas funcionales locales
     allDrivers = apiDrivers.map(apiDriver => {
       const stats = BACKBACK_DRIVERS.find(d => d.driver_number === apiDriver.driver_number) || { points: 0, wins: 0, podiums: 0 };
       return { ...apiDriver, ...stats };
@@ -114,7 +109,6 @@ function inicializarApp() {
   statusMessage.style.display = 'none';
   populateTeamsFilter();
   
-  // Modificamos el selector de orden para incluir opciones de estadísticas
   sortSelect.innerHTML = `
     <option value="points">Ordenar por Puntos (Campeonato)</option>
     <option value="wins">Ordenar por Victorias 🏆</option>
@@ -125,7 +119,6 @@ function inicializarApp() {
   filterAndSortDrivers();
 }
 
-// 2. RENDERIZADO DINÁMICO CON ESTADÍSTICAS VISUALES
 function renderDrivers(driversList) {
   driversGrid.innerHTML = '';
 
@@ -141,8 +134,6 @@ function renderDrivers(driversList) {
     card.className = 'driver-card';
     card.style.borderLeft = `6px solid #${driver.team_colour || 'FFFFFF'}`;
     
-    // CORREGIDO: Eliminamos el <div class="driver-card"> repetido de aquí adentro
-    // CORREGIDO: Cambiamos 'pilot' por 'driver' para mapear los datos reales de OpenF1
     card.innerHTML = `
       <div class="card-header">
         <span class="driver-number">#${driver.driver_number || 'N/A'}</span>
@@ -188,7 +179,6 @@ function populateTeamsFilter() {
   });
 }
 
-// 3. FILTRADO Y NUEVAS OPCIONES DE ORDENAMIENTO
 function filterAndSortDrivers() {
   const query = searchInput.value.toLowerCase();
   const selectedTeam = teamFilter.value;
@@ -201,18 +191,16 @@ function filterAndSortDrivers() {
     return matchesSearch && matchesTeam;
   });
 
-  // Lógica de ordenamiento expandida para las estadísticas funcionales
   results.sort((a, b) => {
     if (criteria === 'name') {
       return (a.full_name || '').localeCompare(b.full_name || '');
     }
     if (criteria === 'wins') {
-      return b.wins - a.wins; // De más victorias a menos
+      return b.wins - a.wins; 
     }
     if (criteria === 'number') {
       return a.driver_number - b.driver_number;
     }
-    // Por defecto: ordenar por puntos del campeonato mundial (de mayor a menor)
     return b.points - a.points;
   });
 
@@ -230,36 +218,27 @@ function toggleFavorite(driver) {
   filterAndSortDrivers();
 }
 
-// Listeners
 searchInput.addEventListener('input', filterAndSortDrivers);
 teamFilter.addEventListener('change', filterAndSortDrivers);
 sortSelect.addEventListener('change', filterAndSortDrivers);
 
 fetchDrivers();
 function actualizarEnlacesNavegacion() {
-  // 1. Obtenemos el nombre del archivo actual (ej: 'index.html' o 'favoritos.html')
   const paginaActual = window.location.pathname.split('/').pop();
 
-  // 2. Capturamos los enlaces o botones de navegación del DOM
-  // (Asegúrate de que tus elementos tengan los IDs correctos o usa sus clases)
   const btnInicio = document.getElementById('btn-inicio') || document.querySelector('a[href*="index.html"]');
   const btnFavoritos = document.getElementById('btn-favoritos') || document.querySelector('a[href*="favoritos.html"]');
 
-  // Si no se encuentran los elementos en el DOM, salimos de la función para evitar errores
   if (!btnInicio || !btnFavoritos) return;
 
-  // 3. Quitamos la clase active de ambos por seguridad
   btnInicio.classList.remove('active');
   btnFavoritos.classList.remove('active');
 
-  // 4. Evaluamos en qué página estamos y encendemos el botón correspondiente
-  // Si la ruta está vacía o es '/', por defecto es el Inicio
   if (paginaActual === 'favoritos.html') {
     btnFavoritos.classList.add('active');
   } else {
-    btnInicio.classList.add('active'); // Para 'index.html', raíz o rutas vacías
+    btnInicio.classList.add('active'); 
   }
 }
 
-// 🚀 Ejecutamos la función inmediatamente al cargar la página
 actualizarEnlacesNavegacion();
