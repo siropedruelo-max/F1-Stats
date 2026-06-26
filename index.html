@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Hub - Inicio</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>🏁 Open F1 Stats</h1>
+     <nav>
+  <a href="/index.html" class="nav-link active">Inicio</a>
+  <a href="/src/pages/favoritos/index.html" class="nav-link">⭐ Mis Favoritos</a>
+  <a href="/src/pages/comparador/index.html" class="nav-link">📊 Comparador</a>
+     </nav>
+
+  </header>
+
+  <main class="container">
+  <h2>Parrilla de Pilotos</h2>
+
+  <section class="toolbar">
+    <input type="text" id="search-input" placeholder="🔍 Buscar piloto por nombre o sigla...">
+    
+    <select id="team-filter">
+      <option value="">Todas las escuderías</option>
+    </select>
+
+    <select id="sort-select">
+      </select>
+  </section>
+
+  <div id="status-message" class="message">🏎️ Conectando con los servidores de OpenF1...</div>
+
+  <section id="drivers-grid" class="drivers-grid"></section>
+</main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

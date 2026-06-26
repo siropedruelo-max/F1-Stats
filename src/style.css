@@ -1,0 +1,347 @@
+:root {
+  --bg-dark: #15151e;
+  --bg-card: #1f1f27;
+  --f1-red: #e10600;
+  --text-main: #ffffff;
+  --text-muted: #949498;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: #0b0b0f;
+  border-bottom: 4px solid var(--f1-red);
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+nav a.active, nav a:hover {
+  color: var(--text-main);
+}
+
+.container {
+  padding: 30px 5%;
+}
+
+.toolbar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.toolbar input, .toolbar select {
+  padding: 12px;
+  background-color: var(--bg-card);
+  border: 1px solid #38383f;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.toolbar input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+
+.driver-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.driver-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.driver-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.4;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.driver-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.35rem;
+}
+
+.driver-info p {
+  margin: 6px 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.driver-info strong {
+  color: var(--text-main);
+}
+
+.message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 40px 0;
+  font-weight: bold;
+}
+
+.empty-message {
+  color: var(--text-muted);
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: 30px;
+}
+
+.muted-text {
+  color: var(--text-muted);
+}
+
+.intro-text {
+  margin-bottom: 20px;
+}
+
+.stats-container {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.stats-container span {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.stats-container small {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.stat-points {
+  color: #fff;
+}
+
+.stat-wins {
+  color: var(--f1-red);
+}
+
+.stat-podiums {
+  color: #ffb703;
+}
+
+.remove-fav-btn {
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--f1-red);
+}
+
+.comparison-toolbar {
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.selector-group label {
+  display: block;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.selector-group select {
+  padding: 10px;
+  background: #1f1f24;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.versus-text {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: var(--f1-red);
+}
+
+.tablero-comparacion {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px;
+  display: none;
+}
+
+.stat-comparison-row {
+  margin-bottom: 25px;
+}
+
+.stat-comparison-row:last-child {
+  margin-bottom: 0;
+}
+
+.comparison-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.comparison-title {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.comparison-bars {
+  display: flex;
+  background: #111;
+  height: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.comparison-bar {
+  width: 50%;
+  transition: width 0.5s;
+}
+
+.p1-bar {
+  background: #3671C6;
+}
+
+.p2-bar {
+  background: #FF8000;
+}
+
+.error-title {
+  color: var(--f1-red);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+
+  .drivers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 15px;
+  }
+
+  .main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 10px;
+  }
+
+  /* Forzamos al nav a actuar como columna, separando los botones uno abajo del otro */
+  .main-header nav {
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    align-items: center;
+    width: 100%;
+    gap: 12px; /* Espacio de separación entre un botón y otro */
+  }
+
+  /* Estilo individual para que los enlaces parezcan botones limpios y bien distribuidos */
+  .nav-link, .nav-btn-tab {
+    display: block;
+    width: 90%; /* Ocupan casi todo el ancho disponible para que sea fácil tocarlos */
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 !important; /* Eliminamos márgenes laterales viejos que causaban la superposición */
+    border-radius: 6px;
+    background-color: #1a1a1a; /* Un fondo sutil para dar sensación de botón */
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  /* Resaltado para el botón de la página donde estás parado actualmente */
+  .nav-link.active, .nav-btn-tab.active {
+    background-color: #e10600; /* Rojo Ferrari/F1 oficial */
+    color: #ffffff !important;
+  }
+
+  /* El comparador: los selectores se ponen uno abajo del otro */
+  .toolbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .selector-group {
+    width: 100%;
+  }
+
+  .selector-group select {
+    width: 100%; /* El select ocupa todo el ancho del celu */
+  }
+}
+
+/* 📲 Para Pantallas Chicas (Celulares - Menos de 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  /* La grilla pasa a 1 sola columna obligatoria */
+  .drivers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Achicamos un poco los textos de las barras de estadísticas para que no se pisen */
+  .stat-comparison-row div {
+    font-size: 0.85rem;
+  }
+  
+  .stats-container {
+    font-size: 0.9rem;
+  }
+}

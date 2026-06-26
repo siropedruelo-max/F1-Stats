@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenF1 - Comparador Head-to-Head</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <h1>🏁 OpenF1 Stats</h1>
+    <nav>
+      <a href="/index.html" class="nav-link">Inicio</a>
+      <a href="/src/pages/favoritos/index.html" class="nav-link">⭐ Mis Favoritos</a>
+      <a href="/src/pages/comparador/index.html" class="nav-link active">📊 Comparador</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>📊 Comparación Directa (Head-to-Head)</h2>
+    <p class="muted-text intro-text">Selecciona dos pilotos de tu garaje de favoritos para comparar sus estadísticas de la temporada.</p>
+
+    <!-- Selectores de Pilotos -->
+    <section class="toolbar comparison-toolbar">
+      <div class="selector-group">
+        <label for="piloto-1">Piloto 1:</label>
+        <select id="piloto-1"></select>
+      </div>
+      
+      <div class="versus-text">VS</div>
+
+      <div class="selector-group">
+        <label for="piloto-2">Piloto 2:</label>
+        <select id="piloto-2"></select>
+      </div>
+    </section>
+
+    <!-- Contenedor del Gráfico de Comparación -->
+    <section id="tablero-comparacion" class="tarjeta-piloto tablero-comparacion">
+      
+      <!-- Fila de Puntos -->
+      <div class="stat-comparison-row">
+        <div class="comparison-labels">
+          <span id="piloto1-puntos-valor">0 Ptos</span>
+          <span class="comparison-title">Puntos Totales</span>
+          <span id="piloto2-puntos-valor">0 Ptos</span>
+        </div>
+        <div class="comparison-bars">
+          <div id="piloto1-puntos-barra" class="barra-comparacion barra-piloto-1"></div>
+          <div id="piloto2-puntos-barra" class="barra-comparacion barra-piloto-2"></div>
+        </div>
+      </div>
+
+      <!-- Fila de Victorias -->
+      <div class="stat-comparison-row">
+        <div class="comparison-labels">
+          <span id="piloto1-victorias-valor">0 victorias</span>
+          <span class="comparison-title">Victorias</span>
+          <span id="piloto2-victorias-valor">0 victorias</span>
+        </div>
+        <div class="comparison-bars">
+          <div id="piloto1-victorias-barra" class="barra-comparacion barra-piloto-1"></div>
+          <div id="piloto2-victorias-barra" class="barra-comparacion barra-piloto-2"></div>
+        </div>
+      </div>
+
+      <!-- Fila de Podios -->
+      <div class="stat-comparison-row">
+        <div class="comparison-labels">
+          <span id="piloto1-podios-valor">0 podios</span>
+          <span class="comparison-title">Podios Totales</span>
+          <span id="piloto2-podios-valor">0 podios</span>
+        </div>
+        <div class="comparison-bars">
+          <div id="piloto1-podios-barra" class="barra-comparacion barra-piloto-1"></div>
+          <div id="piloto2-podios-barra" class="barra-comparacion barra-piloto-2"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <div id="mensaje-sin-datos" class="message muted-text">
+      Agrega al menos 2 pilotos a tus favoritos para poder compararlos.
+    </div>
+  </main>
+
+  <script type="module" src="./comparador.js"></script>
+</body>
+</html>
